@@ -16,6 +16,9 @@ knitr::opts_chunk$set(
 
 # dopcalc
 
+[![Travis-CI Build Status](https://travis-ci.org/pboesu/dopcalc.svg?branch=master)](https://travis-ci.org/pboesu/dopcalc)
+[![Coverage Status](https://img.shields.io/codecov/c/github/pboesu/dopcalc/master.svg)](https://codecov.io/github/pboesu/dopcalc?branch=master)
+
 The goal of dopcalc is to ...
 
 ## Example
