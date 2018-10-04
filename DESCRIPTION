@@ -1,0 +1,13 @@
+Package: dopcalc
+Type: Package
+Title: GPS constellation and dilution of precision calculations from almanac data
+Version: 0.1.0
+Authors@R: c(person("Philipp", "Boersch-Supan", email = "pboesu@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-6723-6833"))
+             )
+BugReports: https://github.com/pboesu/dopcalc/issues
+URL: https://github.com/pboesu/dopcalc
+Description: Calculation of GPS satellite constellations and dilution of precision measures for user specified locations and times based on GPS almanac data. Almanac data are downloaded if desired.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.0

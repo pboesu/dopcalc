@@ -1,0 +1,5 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^inst/dop_model_rough_translation\.R$
+^README\.Rmd$
+^README-.*\.png$
