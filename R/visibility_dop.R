@@ -81,6 +81,13 @@ zLocalRef = ((1-es^2)*N + sealevel)*sin(lat); #ENU Local ref pt z ECEF coordinat
 io = 0.3*pi; #Inclination angle @ ref. time (rad)
 mju = 3.986005e14; #WGS 84 value of the Earth's universal gravitational parameter for GPS user (meters^3/sec^2)
 OMEGAdote = 7.2921151467e-5; #WGS 84 value of the Earth's rotation rate (rad/sec)
+
+#--------------------------
+gps_timestamp = ymdhms2gps(y, m, d, h, mi, sec);#, timezone, summertime);
+gps_week = gps_timestamp$gps_week;
+sec_of_week = gps_timestamp$sec_of_week;
+#julian_date = 367*y - floor(7/4*(y + floor((m + 9)/12))) - floor(3/4*floor(y + ((m-9)/7)/100)+1)+floor(275*m/9)+d+1721028.5+h/24+mi/1440+sec/86400 - (timezone + summertime)/24 + leapsec/86400;
+#gps_week = floor(
 #-------------------------
 #Almanac Data from Satellite
 if (!is.null(almanac_file)){
@@ -100,12 +107,7 @@ close(fid);
 wn = data[1]; #GPS week no.
 toa = data[2]; #Time of Applicability of Almanac(sec) (range: 0 to 604,784)
 
-#--------------------------
-gps_timestamp = ymdhms2gps(y, m, d, h, mi, sec);#, timezone, summertime);
-gps_week = gps_timestamp$gps_week;
-sec_of_week = gps_timestamp$sec_of_week;
-#julian_date = 367*y - floor(7/4*(y + floor((m + 9)/12))) - floor(3/4*floor(y + ((m-9)/7)/100)+1)+floor(275*m/9)+d+1721028.5+h/24+mi/1440+sec/86400 - (timezone + summertime)/24 + leapsec/86400;
-#gps_week = floor(
+
 
 Total_weeks = gps_week; #Total number of weeks since 6 Jan 1980
 gps_week = gps_week %% 1024;
