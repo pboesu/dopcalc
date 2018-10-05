@@ -18,12 +18,15 @@ knitr::opts_chunk$set(
 
 [![Travis-CI Build Status](https://travis-ci.org/pboesu/dopcalc.svg?branch=master)](https://travis-ci.org/pboesu/dopcalc)
 [![Coverage Status](https://img.shields.io/codecov/c/github/pboesu/dopcalc/master.svg)](https://codecov.io/github/pboesu/dopcalc?branch=master)
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
-The goal of dopcalc is to forecast or hindcast GPS satellite constellations and associated positioning precision metrics. Use cases include GPS mission planning, i.e. determining times of good GPS coverage at a survey location, or post-hoc precision estimation for GPS data that lacks signal quality information.
+The goal of dopcalc is to forecast or hindcast GPS satellite constellations and associated positioning precision metrics for arbitrary locations. Use cases include GPS mission planning, i.e. determining times of good GPS coverage at a survey location, or post-hoc precision estimation for GPS data that lacks signal quality information.
 
-Calculations are based on GPS almanac data, which is automatically obtained from the US Coast Guard Navigation Center when necessary.
+The initially targeted use-case is focussed on seabirds at sea, so horizon shading by terrain or the built environment is currently not considered. `r #(but see library(horizon) and/or GRASS modules r.horizon and r.obstruction for possible solutions to this. Neither appears to allow for flight height, though)`
 
-The R package draws heavily on previous work by others, in particular [thesis]
+Calculations are based on GPS almanac data. Optional automatic downloads of the required almanac files from the US Coast Guard Navigation Center when necessary are part of the planned functionality.
+
+The R package draws on previous work by others, in particular [Master's thesis]
 
 ## Example
 
