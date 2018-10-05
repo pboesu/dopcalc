@@ -48,7 +48,7 @@
 #' @export
 #'
 #' @examples
-#' calculate_dop(0,90,0,2018,10,4,0,0,0)
+#' calculate_dop(0,90,0,2018,10,4,0,0,0, system.file('extdata', 'current.al3', package = 'dopcalc'))
 #'
 calculate_dop <- function(lat_deg, lon_deg, alt, y, m, d, h, mi, sec, Obstruction = 0, almanac_file = NULL){
 #**********************************************************************

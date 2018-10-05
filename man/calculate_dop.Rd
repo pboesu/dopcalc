@@ -5,7 +5,7 @@
 \title{Calculate expected DOP for a location}
 \usage{
 calculate_dop(lat_deg, lon_deg, alt, y, m, d, h, mi, sec,
-  Obstruction = 0)
+  Obstruction = 0, almanac_file = NULL)
 }
 \arguments{
 \item{lat_deg}{target position latitude in degrees N}
@@ -27,6 +27,8 @@ calculate_dop(lat_deg, lon_deg, alt, y, m, d, h, mi, sec,
 \item{sec}{second}
 
 \item{Obstruction}{obstruction angle to horizon in degrees. this is currently assumed to be uniform around the target location}
+
+\item{almanac_file}{path to an appropriate almanace file. If NULL (default)}
 }
 \value{
 a named list
@@ -35,6 +37,6 @@ a named list
 Calculate expected DOP for a location
 }
 \examples{
-calculate_dop(0,90,0,2018,10,4,0,0,0)
+calculate_dop(0,90,0,2018,10,4,0,0,0, system.file('extdata', 'current.al3', package = 'dopcalc'))
 
 }
