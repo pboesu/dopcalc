@@ -13,3 +13,4 @@ LazyData: true
 RoxygenNote: 6.1.0
 Suggests: testthat,
     covr
+Imports: lubridate

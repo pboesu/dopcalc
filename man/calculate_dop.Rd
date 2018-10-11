@@ -37,6 +37,9 @@ a named list
 Calculate expected DOP for a location
 }
 \examples{
-calculate_dop(0,90,0,2018,10,4,0,0,0, system.file('extdata', 'current.al3', package = 'dopcalc'))
-
+ # use local almanac file
+ calculate_dop(0,90,0,2018,10,4,0,0,0,
+  almanac_file = system.file('extdata', 'current.al3', package = 'dopcalc'))
+ # get almanac file from USGS online
+ calculate_dop(0,90,0,2018,10,4,0,0,0)
 }

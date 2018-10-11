@@ -47,9 +47,14 @@
 #' @return a named list
 #' @export
 #'
-#' @examples
-#' calculate_dop(0,90,0,2018,10,4,0,0,0, system.file('extdata', 'current.al3', package = 'dopcalc'))
+#' @importFrom utils download.file
 #'
+#' @examples
+#'  # use local almanac file
+#'  calculate_dop(0,90,0,2018,10,4,0,0,0,
+#'   almanac_file = system.file('extdata', 'current.al3', package = 'dopcalc'))
+#'  # get almanac file from USGS online
+#'  calculate_dop(0,90,0,2018,10,4,0,0,0)
 calculate_dop <- function(lat_deg, lon_deg, alt, y, m, d, h, mi, sec, Obstruction = 0, almanac_file = NULL){
 #**********************************************************************
 #Convert Target's Latitude, Longitude and Altitude to ECEF Coordinates
@@ -94,10 +99,14 @@ if (!is.null(almanac_file)){
   if(!file.exists(almanac_file)) stop(paste('almanac file not found at ',  almanac_file))
   fid = file(almanac_file, 'r'); #Open source file "current.al3"
 } else {
-  fid = url(get_almanac_url(y, m, d) )
+  almanac_url = get_almanac_url(y, m, d)
+  almanac_file = tempfile()
+  download.file(almanac_url, almanac_file)
+  fid = file(almanac_file, 'r')
 }
 
 #Common Data
+#this should be replaced with a proper parser that doesn't fall over with file vs url connections
 NumSV_name = scan(fid, nlines = 1, what = character(), quiet = TRUE);
 NumSV = as.numeric(NumSV_name[1]); #Number of Satellites
 name = NumSV_name[2];

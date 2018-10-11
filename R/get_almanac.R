@@ -78,8 +78,21 @@ validate_almanac_url <- function(url_string){
   return(list(url_valid = url_valid, reason = reason))
 }
 
-get_almanac_url <- function(year, month, date, gps_week){
-  yday <- lubridate::yday(lubridate::ymd(paste(year, month, date, sep = '-')))
+#' Attempt to find appropriate almanac file for a given date
+#'
+#' @param year numeric year
+#' @param month numeric month
+#' @param day numeric day of month
+#' @param gps_week numeric gps_week
+#'
+#' @return a string
+#'
+#' @importFrom lubridate yday ymd
+#'
+#' @export
+#'
+get_almanac_url <- function(year, month, day, gps_week){
+  yday <- lubridate::yday(lubridate::ymd(paste(year, month, day, sep = '-')))
   #first guess
   url_string <- paste_almanac_url(yday, year)
   #check if this is valid
